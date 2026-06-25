@@ -118,8 +118,9 @@ export default function OpeningsSection() {
         PUBLIC_KEY
       );
       setSent(true);
-    } catch {
-      setError("Something went wrong. Please try again.");
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      setError(`Failed: ${msg}`);
     } finally {
       setLoading(false);
     }

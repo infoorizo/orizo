@@ -33,8 +33,9 @@ export default function ContactForm() {
         PUBLIC_KEY
       );
       setSent(true);
-    } catch {
-      setError("Something went wrong. Please try again or email us directly.");
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      setError(`Failed: ${msg}`);
     } finally {
       setLoading(false);
     }
