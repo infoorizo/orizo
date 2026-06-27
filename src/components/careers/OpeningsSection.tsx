@@ -236,15 +236,25 @@ export default function OpeningsSection() {
                 {/* form / success */}
                 {sent ? (
                   <div className="flex flex-col items-center justify-center py-10 text-center">
-                    <div className="w-16 h-16 rounded-full bg-orange-400 flex items-center justify-center mb-4 shadow-lg shadow-orange-400/30">
-                      <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <div className="w-20 h-20 rounded-full bg-orange-400 flex items-center justify-center mb-5 shadow-lg shadow-orange-400/30">
+                      <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h4 className="text-2xl font-extrabold text-white mb-2">Application Submitted!</h4>
-                    <p className="text-gray-400 text-sm mb-6">
-                      Thank you for applying for <span className="text-orange-400 font-semibold">{selected.title}</span>. We&apos;ll be in touch within 3–5 business days.
+                    <h4 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">Application Received!</h4>
+                    <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-2">
+                      Thank you for applying to <span className="text-orange-400 font-semibold">ORIZO TECHNOLOGIES</span>.
                     </p>
+                    <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-xs">
+                      Your application for <span className="text-white font-semibold">{selected.title}</span> has been received. Our team will review your details and get back to you within <span className="text-white font-semibold">24 hours</span>.
+                    </p>
+                    <div className="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-left w-full max-w-xs mb-6">
+                      <p className="text-xs text-gray-400 uppercase tracking-widest mb-2">Application Summary</p>
+                      <p className="text-white text-sm font-semibold">{form.name}</p>
+                      <p className="text-gray-400 text-xs">{form.email}</p>
+                      <p className="text-gray-400 text-xs mt-1">Role: {selected.title}</p>
+                      {form.experience && <p className="text-gray-400 text-xs">Experience: {form.experience} years</p>}
+                    </div>
                     <button onClick={closeModal} className="bg-orange-400 hover:bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl text-sm transition-colors">
                       Close
                     </button>

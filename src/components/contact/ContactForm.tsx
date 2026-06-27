@@ -80,13 +80,26 @@ export default function ContactForm() {
             <div>
               {sent ? (
                 <div className="h-full flex flex-col items-center justify-center text-center py-10">
-                  <div className="w-16 h-16 rounded-full bg-orange-400 flex items-center justify-center mb-4">
-                    <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <div className="w-20 h-20 rounded-full bg-orange-400 flex items-center justify-center mb-5 shadow-lg shadow-orange-400/30">
+                    <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-extrabold text-white mb-2">Message Sent!</h3>
-                  <p className="text-gray-400 text-sm">We&apos;ll get back to you within 24 hours.</p>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+                    Request Received!
+                  </h3>
+                  <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-2">
+                    Thank you for reaching out to <span className="text-orange-400 font-semibold">ORIZO TECHNOLOGIES</span>.
+                  </p>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-xs">
+                    Your details have been received and our team will review your message and get back to you within <span className="text-white font-semibold">24 hours</span>.
+                  </p>
+                  <div className="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-left w-full max-w-xs">
+                    <p className="text-xs text-gray-400 uppercase tracking-widest mb-2">Summary</p>
+                    <p className="text-white text-sm font-semibold">{form.name}</p>
+                    <p className="text-gray-400 text-xs">{form.email}</p>
+                    <p className="text-gray-400 text-xs mt-1">Re: {form.subject}</p>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
